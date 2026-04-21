@@ -1,0 +1,2 @@
+-Aplicatia encripteaza mesaje prin mutarea circulara a literelor
+-Mesajele pot fi si decriptate
