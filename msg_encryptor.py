@@ -41,7 +41,7 @@ def _copy_to_clipboard():
 def _encrypt():
     text = message.get("1.0", tk.END).strip()
     encrypted_text = ""
-    shift_string = key_box.get("1.0", tk.END).strip()
+    shift_string = key_box.get().strip()
     if not _validate_key(shift_string):
         return
     shift = int(shift_string)
@@ -64,7 +64,7 @@ def _encrypt():
 def _decrypt():
     text = message.get("1.0", tk.END).strip()
     decrypted_text = ""
-    shift_string = key_box.get("1.0", tk.END).strip()
+    shift_string = key_box.get().strip()
     if not _validate_key(shift_string):
         return
     shift = int(shift_string)
@@ -109,15 +109,14 @@ key_frame = tk.Frame(app, bg=CARD_COLOR, padx=20, pady=15, highlightthickness=1,
 key_frame.pack(pady=(10, 10), padx=50, fill="x")
 
 tk.Label(key_frame, text="SHIFT KEY:", font=("Segoe UI", 9, "bold"), bg=CARD_COLOR, fg="#94a3b8").pack(anchor="w")
-key_box = tk.Text(key_frame, height=1, font=("Consolas", 14), bg="#13131f", fg=TEXT_COLOR, insertbackground="white", bd=0, padx=10, pady=10)
-key_box.pack(fill="x", pady=(5, 0))
-
+key_box = tk.Entry(key_frame, font=("Segoe UI", 11), bg="#13131f", fg=TEXT_COLOR, insertbackground="white", bd=0)
+key_box.pack(fill="x", pady=5, padx=5)
 #encrypt_type_btn_frame = tk.Frame(app, bg=BG_COLOR)
 #encrypt_type_btn_frame.pack(pady=10)
 
 
 input_frame = tk.Frame(app, bg=CARD_COLOR, padx=20, pady=20, highlightthickness=1, highlightbackground="#3b3b5c")
-input_frame.pack(pady=20, padx=50, fill="x")
+input_frame.pack(pady=10, padx=50, fill="x")
 
 tk.Label(input_frame, text="INSERT MESSAGE:", font=("Segoe UI", 9, "bold"), bg=CARD_COLOR, fg="#94a3b8").pack(anchor="w")
 message = tk.Text(input_frame, height=6, font=("Segoe UI", 11), bg="#13131f", fg=TEXT_COLOR, insertbackground="white", bd=0, padx=10, pady=10)
@@ -135,7 +134,8 @@ decrypt_btn.pack(side="left", padx=10)
 
 tk.Label(app, text="RESULT:", font=("Segoe UI", 9, "bold"), bg=BG_COLOR, fg="#94a3b8").pack(pady=(10, 0))
 result_box = tk.Text(app, height=4, width=45, font=("Consolas", 16, "bold"), bg="#13131f", fg=RESULT_COLOR, padx=15, pady=15, bd=0)
-result_box.pack(pady=10)
+result_box.pack(pady=10, padx=50, fill="x")
+result_box.config(state=tk.DISABLED)
 
 
 btn_frame2 =tk.Frame(app, bg=BG_COLOR)
