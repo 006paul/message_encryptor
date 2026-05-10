@@ -2,4 +2,4 @@
 
 -Mesajele pot fi si decriptate
 
--Descarcare: https://github.com/006paul/message_encryptor/releases/tag/v.1.1
+-Descarcare: https://github.com/006paul/message_encryptor/releases/tag/v1.2
